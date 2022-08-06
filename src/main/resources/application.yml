@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: online-store-microservice-address
+  profiles:
+    active: dev
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5400/address_microservice
