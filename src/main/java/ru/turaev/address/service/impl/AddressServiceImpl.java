@@ -12,6 +12,11 @@ import ru.turaev.address.service.AddressService;
 public class AddressServiceImpl implements AddressService {
     private final AddressRepository addressRepository;
 
+    @Override
+    public boolean isAddressExist(long id) {
+        return addressRepository.existsById(id);
+    }
+
     @Transactional
     @Override
     public Address addAddress(Address address) {

@@ -1,10 +1,7 @@
 package ru.turaev.address.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.turaev.address.model.Address;
 import ru.turaev.address.service.AddressService;
 
@@ -24,5 +21,10 @@ public class AddressController {
         Address address1 = addressService.addAddress(address);
         log.info("Address with id {} was created", address1.getId());
         return address1;
+    }
+
+    @GetMapping("/exist/{id}")
+    public boolean isAddressExist(@PathVariable long id) {
+        return addressService.isAddressExist(id);
     }
 }
