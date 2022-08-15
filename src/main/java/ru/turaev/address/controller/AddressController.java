@@ -1,5 +1,6 @@
 package ru.turaev.address.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import ru.turaev.address.model.Address;
@@ -8,12 +9,9 @@ import ru.turaev.address.service.AddressService;
 @Slf4j
 @RestController
 @RequestMapping("api/v1/addresses")
+@RequiredArgsConstructor
 public class AddressController {
     private final AddressService addressService;
-
-    public AddressController(AddressService addressService) {
-        this.addressService = addressService;
-    }
 
     @PostMapping
     public Address addAddress(@RequestBody Address address) {
